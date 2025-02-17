@@ -1,21 +1,22 @@
-import { Replace } from 'src/helpers/Replace';
+import { Content } from '../../app/Notification/Entities/content.entity';
 import { randomUUID } from 'node:crypto';
-import { NotificationProps } from '../interfaces/notifications';
-import { Content } from './content';
+
+export interface NotificationParams {
+  recipientId: string;
+  content: Content;
+  category: string;
+  readAt?: Date | null;
+  canceledAt?: Date | null;
+  createdAt: Date;
+}
 
 export class Notification {
   private _id: string;
-  private props: NotificationProps;
+  private params: NotificationParams;
 
-  constructor(
-    props: Replace<NotificationProps, { createdAt?: Date }>,
-    id?: string,
-  ) {
+  constructor(params: NotificationParams, id?: string) {
     this._id = id ?? randomUUID();
-    this.props = {
-      ...props,
-      createdAt: props.createdAt ?? new Date(),
-    };
+    this.params = { ...params, createdAt: params.createdAt ?? new Date() };
   }
 
   public get id() {
@@ -23,50 +24,50 @@ export class Notification {
   }
 
   public set recipientId(recipientId: string) {
-    this.props.recipientId = recipientId;
+    this.params.recipientId = recipientId;
   }
 
   public get recipientId(): string {
-    return this.props.recipientId;
+    return this.params.recipientId;
   }
 
   public set content(content: Content) {
-    this.props.content = content;
+    this.params.content = content;
   }
 
   public get content(): Content {
-    return this.props.content;
+    return this.params.content;
   }
 
   public set category(category: string) {
-    this.props.category = category;
+    this.params.category = category;
   }
 
   public get category(): string {
-    return this.props.category;
+    return this.params.category;
   }
 
   public read() {
-    this.props.readAt = new Date();
+    this.params.readAt = new Date();
   }
 
   public unread() {
-    this.props.readAt = null;
+    this.params.readAt = null;
   }
 
   public get readAt(): Date | null | undefined {
-    return this.props.readAt;
+    return this.params.readAt;
   }
 
   public cancel() {
-    this.props.canceledAt = new Date();
+    this.params.canceledAt = new Date();
   }
 
   public get canceledAt(): Date | null | undefined {
-    return this.props.canceledAt;
+    return this.params.canceledAt;
   }
 
   public get createdAt(): Date {
-    return this.props.createdAt;
+    return this.params.createdAt;
   }
 }

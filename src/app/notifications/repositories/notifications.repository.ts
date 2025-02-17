@@ -19,7 +19,7 @@ export class NotificationsRepository implements NotificationsInterface {
       return null;
     }
 
-    return NotificationsMapper.toFrontend(notification);
+    return NotificationsMapper.toService(notification);
   }
 
   async findManyByRecipientId(recipientId: string): Promise<Notification[]> {
@@ -29,7 +29,7 @@ export class NotificationsRepository implements NotificationsInterface {
       },
     });
 
-    return notifications.map(NotificationsMapper.toDomain);
+    return notifications.map(NotificationsMapper.toService);
   }
 
   async countManyByRecipientId(recipientId: string): Promise<number> {

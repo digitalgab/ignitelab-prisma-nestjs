@@ -14,7 +14,7 @@ export class NotificationsMapper {
     };
   }
 
-  static toFrontend(raw: RawNotification): Notification {
+  static toService(raw: RawNotification): Notification {
     return new Notification(
       {
         category: raw.category,

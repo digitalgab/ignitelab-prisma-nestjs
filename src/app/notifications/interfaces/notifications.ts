@@ -8,16 +8,6 @@ export abstract class NotificationsInterface {
   abstract countManyByRecipientId(recipientId: string): Promise<number>;
   abstract findManyByRecipientId(recipientId: string): Promise<Notification[]>;
 }
-
-export interface NotificationProps {
-  recipientId: string;
-  content: Content;
-  category: string;
-  readAt?: Date | null;
-  canceledAt?: Date | null;
-  createdAt: Date;
-}
-
 export interface SendNotificationPayload {
   content: string;
   category: string;

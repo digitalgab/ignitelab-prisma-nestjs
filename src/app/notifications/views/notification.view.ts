@@ -1,7 +1,7 @@
 import { Notification } from '@app/notifications/entities/notification';
 
 export class NotificationView {
-  static toHTTP(notification: Notification) {
+  static toFront(notification: Notification) {
     return {
       id: notification.id,
       content: notification.content.value,

@@ -75,7 +75,7 @@ export class NotificationsController {
     });
 
     return {
-      notification: NotificationView.toHTTP(notification),
+      notification: NotificationView.toFront(notification),
     };
   }
 

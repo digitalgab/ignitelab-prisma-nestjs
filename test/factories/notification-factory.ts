@@ -1,10 +1,10 @@
 import { Content } from '@app/notifications/entities/content';
 import {
   Notification,
-  NotificationProps,
+  NotificationParams,
 } from '@app/notifications/entities/notification';
 
-type Override = Partial<NotificationProps>;
+type Override = Partial<NotificationParams>;
 
 export function makeNotification(override: Override = {}) {
   return new Notification({
