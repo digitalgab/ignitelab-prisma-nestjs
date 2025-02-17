@@ -1,4 +1,4 @@
-import { KafkaConsumerService } from '@infra/messaging/kafka/kafka-consumer.service';
+import { KafkaConsumerService } from '@app/notifications/services/kafka-consumer.service';
 import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions } from '@nestjs/microservices';

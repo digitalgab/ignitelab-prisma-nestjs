@@ -21,9 +21,9 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@application/*": ["./src/application/*"],
+      "@app/*": ["./src/app/*"],
       "@helpers/*": ["./src/helpers/*"],
-      "@infra/*": ["./src/infra/*"],
+      "@database/*": ["./src/database/*"],
       "@test/*": ["./test/*"]
     }
   }
